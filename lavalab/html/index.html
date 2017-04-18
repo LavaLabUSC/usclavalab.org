@@ -443,7 +443,11 @@
 					events: {
 						onReady: function(e) {
 							e.target.mute();
-							e.target.seekTo(41);
+						},
+						onStateChange: function(e){
+							if (e.data === YT.PlayerState.ENDED) {
+							    player.playVideo(); 
+							}
 						}
 					}
 				});
